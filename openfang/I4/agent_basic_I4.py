@@ -43,12 +43,12 @@ if __name__ == "__main__":
     
     agent = Agent(
         name="TextProcessor",
-        description="Agent ho tro xu ly van ban bang cac cong cu co san.",
+        description="Agent xu ly van ban: chuyen chu hoa va nhan doi so.",
         tools_list=danh_sach_tools
     )
 
     # --- I4: TEST TỰ ĐỘNG VỚI CẢ 2 TOOL ---
-    print("   I4 - TEST TU DONG VOI 2 TOOL")
+    print("I4 - TEST TU DONG VOI 2 TOOL")
     
     # Test 1: Gọi tool_uppercase
     print("\n[TEST 1] Goi tool_uppercase:")
@@ -59,13 +59,13 @@ if __name__ == "__main__":
     agent.run("double", 21)
 
     # Test 3: Đảm bảo agent không nhầm tool
-    print("\n[TEST 3] Goi tool khong ton tai:")
+    print("\n[TEST 3] Tool khong ton tai (kiem tra xu ly loi):")
     agent.run("unknown_tool", "test")
 
-    print("   KET QUA: Agent phan biet dung 2 tool!")
+    print("\n[KET QUA] Agent phan biet dung 2 tool!")
     
     # --- PHẦN NHẬP TAY (như agent_basic.py của I2,I3) ---
     print("NHAP DU LIEU BANG TAY")
-    tool = input("\nNhap ten tool (uppercase / double): ")
+    tool = input("Chon tool (uppercase / double): ")
     user_input = input("Nhap du lieu: ")
     agent.run(tool, user_input)
