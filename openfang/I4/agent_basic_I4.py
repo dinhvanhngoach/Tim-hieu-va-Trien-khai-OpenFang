@@ -24,11 +24,11 @@ class Agent:
         self.tools = tools_list
 
     def run(self, tool_name, input_data):
-        print(f"\n[Agent {self.name} dang hoat dong...]")
+        print(f"\n[Agent {self.name} dang chay...]")
         if tool_name in self.tools:
             result = self.tools[tool_name](input_data)
-            print(f"Su dung cong cu: {tool_name}")
-            print(f"Ket qua cuoi cung: {result}")
+            print(f"Tool su dung: {tool_name}")
+            print(f"Ket qua: {result}")
         else:
             print(f"Loi: khong tim thay cong cu '{tool_name}' trong he thong!")
             print(f"Cac tool co san: {list(self.tools.keys())}")
