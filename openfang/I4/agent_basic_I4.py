@@ -2,6 +2,11 @@
 # I4 - Phạm Quốc Đạt
 # Lấy code từ I1+I2+I3, gắn 2 tool, test và thêm nhập tay
 
+#Clone lại từ github nếu xung đột
+#cd ~/Downloads
+#git clone https://github.com/dinhvanhngoach/Tim-hieu-va-Trien-khai-OpenFang
+#cd Tim-hieu-va-Trien-khai-OpenFang
+
 # Để chắc chắn chạy code mới nhất từ GitHub thì chạy lần lượt 3 lệnh dưới:
 #cd ~/Downloads/Tim-hieu-va-Trien-khai-OpenFang
 #git pull origin main
