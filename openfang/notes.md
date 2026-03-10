@@ -26,13 +26,10 @@ Sơ đồ được xây dựng dựa trên **3 thành phần chính** theo yêu 
 
 Các chức năng bên ngoài mà agent gọi được (function calling), hiện có 53+ built-in, chạy an toàn trong \*\*WASM sandbox\*\* để cách ly và bảo mật
 
----
 
 #### 3. Memory
 
 Cơ chế lưu trữ context dài hạn/ngắn hạn, dùng \*\*SQLite\*\* (lưu cấu trúc) + \*\*vector embeddings\*\* (tìm kiếm semantic) + knowledge graph, giúp agent nhớ thông tin giữa các lần chạy
-
----
 
 ### Mô tả sơ đồ kiến trúc
 
@@ -42,7 +39,6 @@ Agent (Hand) ở trung tâm, kết nối trực tiếp với Tools (gọi và nh
 
 Memory (lưu/đọc context), được Kernel spawn từ Input/Trigger.
 
----
 
 ### File đính kèm
 
