@@ -1,0 +1,79 @@
+Ví dụ: dùng OpenFang để chạy agent “Researcher” tự động nghiên cứu thông tin
+1. Mục tiêu của ví dụ
+Tạo một agent nghiên cứu tự động để:
+tìm thông tin trên internet
+kiểm tra nguồn
+viết báo cáo có trích dẫn
+gửi kết quả về dashboard hoặc channel
+Trong OpenFang, agent dạng này thường dùng Researcher Hand.
+2. Các bước trong ví dụ
+Bước 1 – cài OpenFang
+Cài bằng một lệnh:
+curl -fsSL https://openfang.sh/install | sh
+Sau đó hệ thống agent sẽ được cài thành 1 binary chạy độc lập (~32MB).
+Bước 2 – khởi động hệ thống
+openfang start
+Lệnh này chạy:
+kernel agent
+memory database
+API server
+dashboard quản lý
+Bước 3 – kích hoạt Researcher Hand
+openfang hand activate researcher
+Sau khi kích hoạt:
+hệ thống tạo một autonomous agent
+agent chạy theo lịch
+agent có thể gọi tool (search, summarize…)
+3. Workflow của ví dụ
+Trong docs, workflow cơ bản của agent research:
+Search information
+      ↓
+Collect sources
+      ↓
+Fact-check sources
+      ↓
+Summarize results
+      ↓
+Generate report
+Agent sẽ:
+1️⃣ tìm dữ liệu từ web
+2️⃣ thu thập nguồn
+3️⃣ kiểm tra độ tin cậy (CRAAP evaluation)
+4️⃣ viết báo cáo có citation
+OpenFang có sẵn tools và skills để làm các bước này.
+4. Cấu trúc agent trong ví dụ
+Một agent trong OpenFang thường gồm:
+HAND.toml
+system prompt
+skills
+tools
+metrics
+Ví dụ cấu hình:
+name = "research-agent"
+schedule = "0 */4 * * *"
+tools = [
+ "web_search",
+ "summarize",
+ "citation"
+]
+Ý nghĩa:
+agent chạy mỗi 4 giờ
+dùng tool search và summarize
+tạo report tự động.
+5. Kết quả sau khi chạy
+Sau khi agent hoạt động:
+thông tin được lưu vào memory (SQLite + vector)
+báo cáo hiển thị trên dashboard
+có thể gửi sang Telegram / Slack / Discord
+OpenFang hỗ trợ 40+ channel integration.
+6. Ý tưởng sử dụng thực tế (từ docs)
+Researcher agent có thể dùng cho:
+nghiên cứu thị trường
+theo dõi đối thủ
+viết báo cáo ngành
+thu thập tin tức
+Ví dụ:
+Theo dõi tin AI mỗi ngày
+→ agent search
+→ tóm tắt
+→ gửi báo cáo Telegram
