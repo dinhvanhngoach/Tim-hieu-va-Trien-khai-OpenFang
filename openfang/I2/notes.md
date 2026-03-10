@@ -1,28 +1,37 @@
-\## Ngày 1 - I2 (Tô Việt Thường)
+# Vẽ sơ đồ kiến trúc OpenFang. Agent, Tool, Memory là gì
 
+### Sơ đồ kiến trúc OpenFang (đơn giản)
 
+Sơ đồ được xây dựng dựa trên **3 thành phần chính** theo yêu cầu:
 
-\### OpenFang là gì?
+#### 1. Agent (Hand)
+Đơn vị tự hành (autonomous execution unit), chạy vòng lặp: quan sát → suy nghĩ bằng LLM → hành động (gọi tool) → lưu kết quả. Được kernel spawn và giám sát, có lifecycle riêng (Running, Suspended, Terminated).
 
-OpenFang là một \*\*Agent Operating System\*\* mã nguồn mở viết bằng Rust (chạy dưới dạng single binary), cho phép triển khai và chạy các agent tự hành (autonomous agents) liên tục 24/7 theo lịch trình. Nó khác với các framework như LangChain hay CrewAI vì là một hệ điều hành thực thụ với kernel, scheduler, bảo mật WASM sandbox, và hỗ trợ nhiều LLM provider.
+#### 2. Tool / Skills
 
+Các chức năng bên ngoài mà agent gọi được (function calling), hiện có 53+ built-in, chạy an toàn trong \*\*WASM sandbox\*\* để cách ly và bảo mật
 
+---
 
-\### Sơ đồ kiến trúc OpenFang đơn giản
+#### 3. Memory
 
-Em vẽ sơ đồ tập trung vào 3 thành phần chính theo yêu cầu:
+Cơ chế lưu trữ context dài hạn/ngắn hạn, dùng \*\*SQLite\*\* (lưu cấu trúc) + \*\*vector embeddings\*\* (tìm kiếm semantic) + knowledge graph, giúp agent nhớ thông tin giữa các lần chạy
 
-\- \*\*Agent (Hand)\*\*: Đơn vị tự hành (autonomous execution unit), chạy vòng lặp: quan sát → suy nghĩ bằng LLM → hành động (gọi tool) → lưu kết quả. Được kernel spawn và giám sát, có lifecycle riêng (Running, Suspended, Terminated).
+---
 
-\- \*\*Tool / Skills\*\*: Các chức năng bên ngoài mà agent gọi được (function calling), hiện có 53+ built-in, chạy an toàn trong \*\*WASM sandbox\*\* để cách ly và bảo mật.
+### Mô tả sơ đồ kiến trúc
 
-\- \*\*Memory\*\*: Cơ chế lưu trữ context dài hạn/ngắn hạn, dùng \*\*SQLite\*\* (lưu cấu trúc) + \*\*vector embeddings\*\* (tìm kiếm semantic) + knowledge graph, giúp agent nhớ thông tin giữa các lần chạy.
+Trong sơ đồ:
 
+Agent (Hand) ở trung tâm, kết nối trực tiếp với Tools (gọi và nhận kết quả)
 
+Memory (lưu/đọc context), được Kernel spawn từ Input/Trigger.
+
+---
+
+### File đính kèm
 
 Sơ đồ em vẽ: Agent (Hand) ở trung tâm, kết nối trực tiếp với Tools (gọi và nhận kết quả) và Memory (lưu/đọc context), được Kernel spawn từ Input/Trigger.
-
-
 
 Đính kèm (trong folder openfang/I2):
 
