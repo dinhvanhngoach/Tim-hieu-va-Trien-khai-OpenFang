@@ -257,7 +257,7 @@ Nguồn: `https://raw.githubusercontent.com/RightNow-AI/openfang/main/crates/ope
 ### Tóm tắt:
 > **Tool** trong OpenFang là các khả năng thực thi ở runtime (web/file/shell/browser/memory/knowledge/schedule…) giúp agent “làm việc thật”. Tool được **enable bằng cách khai báo danh sách `tools = [...]` trong manifest** (ví dụ `HAND.toml` của Hand), sau đó kernel/runtime chỉ inject đúng các tool được phép theo **capability gates + RBAC**. Khi chạy, LLM chọn gọi tool, runtime thực thi và trả kết quả về để agent tổng hợp.
 ---
-# Ghi chú về Memory trong OpenFang
+# 6. Ghi chú về Memory trong OpenFang
 
 ### Memory trong OpenFang là gì?
 Trong hệ sinh thái OpenFang, Memory không chỉ đơn thuần là việc lưu lại lịch sử trò chuyện mà là một **hệ thống quản lý tri thức đa tầng**. Vì các mô hình ngôn ngữ lớn (LLM) vốn dĩ không có trí nhớ tự thân (stateless), OpenFang sử dụng kiến trúc **Bộ nhớ ngoài (External Memory)** để giúp Agent có khả năng ghi nhớ dài hạn và hiểu ngữ cảnh sâu sắc.
