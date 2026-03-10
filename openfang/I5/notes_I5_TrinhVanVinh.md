@@ -39,6 +39,26 @@ Nguồn: `https://raw.githubusercontent.com/RightNow-AI/openfang/main/crates/ope
 | Schedule | `schedule_create`, `schedule_list`, `schedule_delete` | Lập lịch chạy định kỳ cho Hand. |
 | Events | `event_publish` | Phát sự kiện để tích hợp workflow/trigger/observability. |
 
+### Ví dụ output khi chạy demo OpenFang
+Khi chạy lệnh demo trong README:
+
+```bash
+openfang chat researcher
+> "What are the emerging trends in AI agent frameworks?"
+```
+
+Agent `researcher` (được cấu hình với các tool như `web_search`, `web_fetch`, `memory_store`, `knowledge_*`, ...) sẽ tự gọi tool để tìm kiếm, tổng hợp và trả về kết quả dạng:
+
+> **Question**: What are the emerging trends in AI agent frameworks?  
+> **Key Findings:**  
+> - The current trends in AI agent frameworks include the evolution of Large Language Models (LLMs), Generative AI, and the integration of AI prompt engineering.  
+> - The leading frameworks of 2025 are expected to be tailored to enhance the development and deployment of intelligent agents.  
+> - The landscape of AI agent technology has undergone significant transformation in recent years, driven by breakthroughs in large language models, reinforcement learning, multi-agent systems, and tool integration frameworks.  
+> - The future of AI agent frameworks is expected to be shaped by the increasing use of LLMs and Generative AI in various applications.  
+> **Sources Used:** DuckDuckGo, Medium, arXiv, LinkedIn, digitalissimple.com  
+
+Ví dụ này thể hiện rõ: LLM không tự bịa mà **dùng các tool web search/fetch để đi thu thập dữ liệu, sau đó tổng hợp lại** thành câu trả lời có dẫn nguồn.
+
 ### Tóm tắt ngắn (3-5 dòng cho team)
 > **Tool** trong OpenFang là các khả năng thực thi ở runtime (web/file/shell/browser/memory/knowledge/schedule…) giúp agent “làm việc thật”. Tool được **enable bằng cách khai báo danh sách `tools = [...]` trong manifest** (ví dụ `HAND.toml` của Hand), sau đó kernel/runtime chỉ inject đúng các tool được phép theo **capability gates + RBAC**. Khi chạy, LLM chọn gọi tool, runtime thực thi và trả kết quả về để agent tổng hợp.
 
