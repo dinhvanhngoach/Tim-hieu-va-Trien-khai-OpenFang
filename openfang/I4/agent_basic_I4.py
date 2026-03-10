@@ -60,7 +60,7 @@ if __name__ == "__main__":
     print("   KET QUA: Agent phan biet dung 2 tool!")
     
     # --- PHẦN NHẬP TAY (như I3.txt) ---
-    print("   THU NHAP LIEU TAY")
+    print("THU NHAP LIEU TAY")
     tool = input("\nNhap ten tool (uppercase / double): ")
     user_input = input("Nhap du lieu: ")
     agent.run(tool, user_input)
