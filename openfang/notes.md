@@ -15,60 +15,44 @@ OpenFang được sử dụng để xây dựng các hệ thống tự động h
 
 # 2. Vẽ sơ đồ kiến trúc OpenFang. Agent, Tool, Memory là gì
 
-Các thành phần chính trong OpenFang:
+### Sơ đồ kiến trúc OpenFang (đơn giản)
 
+Sơ đồ được xây dựng dựa trên **3 thành phần chính** theo yêu cầu:
 
+#### 1. Agent (Hand)
+Đơn vị tự hành (autonomous execution unit), chạy vòng lặp: quan sát → suy nghĩ bằng LLM → hành động (gọi tool) → lưu kết quả. Được kernel spawn và giám sát, có lifecycle riêng (Running, Suspended, Terminated).
 
-## Agent (Hand)
+#### 2. Tool / Skills
 
-Agent là **đơn vị thực thi tự động** trong hệ thống.
+Các chức năng bên ngoài mà agent gọi được (function calling), hiện có 53+ built-in, chạy an toàn trong \*\*WASM sandbox\*\* để cách ly và bảo mật
 
-Agent hoạt động theo vòng lặp:
+---
 
-Agent được **Kernel của OpenFang tạo và quản lý**.
+#### 3. Memory
 
-Lifecycle của Agent:
+Cơ chế lưu trữ context dài hạn/ngắn hạn, dùng \*\*SQLite\*\* (lưu cấu trúc) + \*\*vector embeddings\*\* (tìm kiếm semantic) + knowledge graph, giúp agent nhớ thông tin giữa các lần chạy
 
-- Running
-- Suspended
-- Terminated
+---
 
+### Mô tả sơ đồ kiến trúc
 
-## Tool / Skills
+Trong sơ đồ:
 
-Tool là các chức năng mà agent có thể gọi để thực hiện hành động.
+Agent (Hand) ở trung tâm, kết nối trực tiếp với Tools (gọi và nhận kết quả)
 
-Ví dụ:
+Memory (lưu/đọc context), được Kernel spawn từ Input/Trigger.
 
-- web_search
-- web_fetch
-- file_read
-- shell_exec
+---
 
-OpenFang hiện có **53+ built-in tools**.
+### File đính kèm
 
-Các tool chạy trong **WASM sandbox** để đảm bảo:
+Sơ đồ vẽ: Agent (Hand) ở trung tâm, kết nối trực tiếp với Tools (gọi và nhận kết quả) và Memory (lưu/đọc context), được Kernel spawn từ Input/Trigger.
 
-- cách ly
-- bảo mật
-- an toàn hệ thống
+Đính kèm (trong folder openfang/I2):
 
+\- architecture\_openfang.drawio (file gốc draw.io)
 
-## Memory
-
-Memory là hệ thống lưu trữ thông tin của agent.
-
-Bao gồm:
-
-- SQLite (lưu dữ liệu)
-- Vector Embeddings (tìm kiếm semantic)
-- Knowledge Graph
-
-Memory giúp agent:
-
-- ghi nhớ thông tin
-- duy trì ngữ cảnh
-- sử dụng dữ liệu giữa các lần chạy
+\- architecture\_openfang.png (ảnh sơ đồ)
 
 ---
 
