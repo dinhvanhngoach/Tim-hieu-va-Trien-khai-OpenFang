@@ -2,6 +2,11 @@
 # I4 - Phạm Quốc Đạt
 # Lấy code từ I1+I2+I3, gắn 2 tool, test và thêm nhập tay
 
+# Để chắc chắn chạy code mới nhất từ GitHub thì chạy lần lượt 3 lệnh dưới:
+#cd ~/Downloads/Tim-hieu-va-Trien-khai-OpenFang
+#git pull origin main
+#python openfang/I4/agent_basic_I4.py
+
 # --- PHẦN CỦA I2: ĐỊNH NGHĨA TOOL ---
 def tool_uppercase(text):
     """Hàm chuyển văn bản thành chữ hoa"""
