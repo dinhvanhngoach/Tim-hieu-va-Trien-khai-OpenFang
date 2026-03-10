@@ -11,7 +11,6 @@ def tool_double(number):
     """Nhận vào 1 số nguyên và trả về số đó nhân đôi"""
     return int(number) * 2
 
-
 # --- CẤU TRÚC AGENT (I1 & I2 PHỐI HỢP) ---
 class Agent:
     def __init__(self, name, description, tools_list):
@@ -29,7 +28,6 @@ class Agent:
             print(f"Loi: khong tim thay cong cu '{tool_name}' trong he thong!")
             print(f"Cac tool co san: {list(self.tools.keys())}")
 
-
 # --- CHẠY CHƯƠNG TRÌNH ---
 if __name__ == "__main__":
 
@@ -37,7 +35,7 @@ if __name__ == "__main__":
         "uppercase": tool_uppercase,
         "double": tool_double
     }
-
+    
     agent = Agent(
         name="TextProcessor",
         description="Agent ho tro xu ly van ban bang cac cong cu co san.",
@@ -45,10 +43,8 @@ if __name__ == "__main__":
     )
 
     # --- I4: TEST TỰ ĐỘNG VỚI CẢ 2 TOOL ---
-    
     print("   I4 - TEST TU DONG VOI 2 TOOL")
     
-
     # Test 1: Gọi tool_uppercase
     print("\n[TEST 1] Goi tool_uppercase:")
     agent.run("uppercase", "hello openfang")
@@ -61,15 +57,10 @@ if __name__ == "__main__":
     print("\n[TEST 3] Goi tool khong ton tai:")
     agent.run("unknown_tool", "test")
 
-    print("\n" + "=" * 45)
     print("   KET QUA: Agent phan biet dung 2 tool!")
     
-
     # --- PHẦN NHẬP TAY (như I3.txt) ---
-    print("\n" + "=" * 45)
     print("   THU NHAP LIEU TAY")
-    
-
     tool = input("\nNhap ten tool (uppercase / double): ")
     user_input = input("Nhap du lieu: ")
     agent.run(tool, user_input)
