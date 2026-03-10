@@ -138,7 +138,7 @@ Trên GitHub của OpenFang (github.com/RightNow-AI/openfang/tree/main/agents), 
 
 > **Agent** trong OpenFang là đơn vị AI tự động có thể làm việc độc lập theo lịch hoặc theo yêu cầu. Mỗi agent có LLM làm não, Tools để thực thi, và Memory để ghi nhớ. Tạo agent dễ nhất qua Dashboard → New Agent → chọn template. OpenFang có 30 agent template sẵn có, 53 tools, và 60 skills để dùng ngay. Điểm mạnh nhất là "Hands" — agent tự chạy theo lịch mà không cần con người can thiệp.
 ---
-# 15 Ghi chú về Tool trong OpenFang
+# 5. Ghi chú về Tool trong OpenFang
 
 ### Tool trong OpenFang là gì?
 Trong OpenFang, **Tool** là các **khả năng thực thi ở runtime** (capability) mà Agent/Hand có thể gọi để “làm việc thật” thay vì chỉ tạo văn bản. Tool có thể là web search/fetch, đọc/ghi file, chạy lệnh, thao tác browser, truy xuất memory/knowledge graph, tạo lịch (schedule), phát sự kiện (event), v.v. (xem khái niệm Tools/Skills trong “Core Concepts”: `https://openfang.info/docs/concepts`).
