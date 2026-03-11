@@ -1,5 +1,5 @@
 import unittest
-from agent_basic.py import tool_uppercase, tool_double, Agent
+from agent_basic import tool_uppercase, tool_double, Agent
 
 class TestAgentTools(unittest.TestCase):
 
