@@ -24,8 +24,8 @@ class TestAgentTools(unittest.TestCase):
             description="Agent test",
             tools_list=tools
         )
-        result = agent.tools
-        self.assertEqual(result, 12)
-
+        self.assertIn("uppercase", agent.tools) 
+        self.assertIn("double", agent.tools)
 if __name__ == "__main__":
     unittest.main()
+    
