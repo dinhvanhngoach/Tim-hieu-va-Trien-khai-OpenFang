@@ -24,7 +24,7 @@ class Agent:
             print("Result:", result)
 
         # Nếu hỏi agent đã làm gì trước đó
-        elif "lúc nãy" in message:
+        elif "lúc nãy mày làm gì" in message:
             if memory:
                 print("Memory:", memory[-1])
             else:
