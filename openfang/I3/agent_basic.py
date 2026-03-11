@@ -5,29 +5,34 @@ def tool_uppercase(text):
     """Hàm chuyển văn bản thành chữ hoa"""
     return text.upper()
 
+def tool_double(number):
+    """Nhận vào 1 số nguyên và trả về số đó nhân đôi"""
+    return int(number) * 2
+
+
 # --- CẤU TRÚC AGENT (I1 & I2 PHỐI HỢP) ---
 class Agent:
     def __init__(self, name, description, tools_list):
         self.name = name
         self.description = description
-        self.tools = tools_list  # I2: Agent giờ nắm giữ một danh sách tool
+        self.tools = tools_list
 
     def run(self, tool_name, input_data):
         print(f"\n[Agent {self.name} dang hoat dong...]")
-        # Kiểm tra xem tool có trong danh sách không
         if tool_name in self.tools:
             result = self.tools[tool_name](input_data)
             print(f"Su dung cong cu: {tool_name}")
             print(f"Ket qua cuoi cung: {result}")
         else:
-            print(f"Loi khong tim thay cong cu'{tool_name}' trong he thong!")
+            print(f"Loi khong tim thay cong cu '{tool_name}' trong he thong!")
 
-# --- CHẠY THỬ (I2 KIỂM TRA) ---
+
+# --- CHẠY THỬ ---
 if __name__ == "__main__":
-    # Đăng ký tool của bạn vào đây
-    # Sau này I3, I4 chỉ cần thêm dòng mới vào dict này là xong
+
     danh_sach_tools = {
-        "uppercase": tool_uppercase
+        "uppercase": tool_uppercase,
+        "double": tool_double
     }
 
     agent = Agent(
@@ -36,6 +41,7 @@ if __name__ == "__main__":
         tools_list=danh_sach_tools
     )
 
-    # Test thử tool uppercase của I2
-    user_input = input("Nhap noi dung can xu ly: ")
-    agent.run("uppercase", user_input)
+    tool = input("Nhap ten tool (uppercase / double): ")
+    user_input = input("Nhap du lieu: ")
+
+    agent.run(tool, user_input)
