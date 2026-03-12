@@ -1,4 +1,10 @@
 import unittest
+import os
+import sys
+
+# Thêm đường dẫn để import được agent_basic khi chạy từ thư mục khác
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from agent_basic import tool_uppercase, tool_double, Agent
 
 class TestAgentTools(unittest.TestCase):
@@ -26,6 +32,20 @@ class TestAgentTools(unittest.TestCase):
         )
         self.assertIn("uppercase", agent.tools) 
         self.assertIn("double", agent.tools)
+
+    # Test case 4: input sai kieu cho tool_double khong lam crash agent
+    def test_agent_run_invalid_input_does_not_crash(self):
+        tools = {
+            "uppercase": tool_uppercase,
+            "double": tool_double
+        }
+        agent = Agent(
+            name="TestAgent",
+            description="Agent test",
+            tools_list=tools
+        )
+        # Neu Agent.run nem exception thi test se fail
+        agent.run("double", "abc")
 if __name__ == "__main__":
     unittest.main()
     

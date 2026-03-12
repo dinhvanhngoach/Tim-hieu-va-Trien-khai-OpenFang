@@ -20,7 +20,18 @@ class Agent:
     def run(self, tool_name, input_data):
         print(f"\n[Agent {self.name} dang hoat dong...]")
         if tool_name in self.tools:
-            result = self.tools[tool_name](input_data)
+            try:
+                result = self.tools[tool_name](input_data)
+            except (TypeError, ValueError) as e:
+                print(f"Su dung cong cu: {tool_name}")
+                print("Loi: Du lieu dau vao khong hop le cho tool nay.")
+                print(f"Chi tiet loi: {type(e).__name__}: {e}")
+                return
+            except Exception as e:
+                print(f"Su dung cong cu: {tool_name}")
+                print("Loi: Tool gap su co khong mong doi (agent khong bi crash).")
+                print(f"Chi tiet loi: {type(e).__name__}: {e}")
+                return
             print(f"Su dung cong cu: {tool_name}")
             print(f"Ket qua cuoi cung: {result}")
         else:

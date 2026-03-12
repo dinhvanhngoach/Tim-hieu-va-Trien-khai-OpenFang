@@ -59,6 +59,16 @@ Agent `researcher` (được cấu hình với các tool như `web_search`, `web
 
 Ví dụ này thể hiện rõ: LLM không tự bịa mà **dùng các tool web search/fetch để đi thu thập dữ liệu, sau đó tổng hợp lại** thành câu trả lời có dẫn nguồn.
 
+### Agent demo (I3/I4) đã có xử lý lỗi input tool
+Khi áp dụng ý tưởng Tool vào các agent Python demo (I3/I4), phần `Agent.run()` đã được bổ sung:
+- Nếu tool (đặc biệt là `tool_double`) nhận **input sai kiểu** (ví dụ `"abc"` thay vì số), agent:
+  - In thông báo: dữ liệu đầu vào không hợp lệ + chi tiết `ValueError`
+  - **Không crash chương trình**.
+- Hành vi này đã được kiểm chứng bằng test tự động:
+  - `python -m unittest -v openfang.I3.test_agent`
+  - `python -m unittest -v openfang.I4.test_agent`
+Chi tiết được ghi trong `I5/REPORT_ERROR_HANDLING_TOOL_INPUT.md`.
+
 ### Tóm tắt ngắn (3-5 dòng cho team)
 > **Tool** trong OpenFang là các khả năng thực thi ở runtime (web/file/shell/browser/memory/knowledge/schedule…) giúp agent “làm việc thật”. Tool được **enable bằng cách khai báo danh sách `tools = [...]` trong manifest** (ví dụ `HAND.toml` của Hand), sau đó kernel/runtime chỉ inject đúng các tool được phép theo **capability gates + RBAC**. Khi chạy, LLM chọn gọi tool, runtime thực thi và trả kết quả về để agent tổng hợp.
 

@@ -40,6 +40,20 @@ class TestAgentTools(unittest.TestCase):
         self.assertIn("uppercase", agent.tools)
         self.assertIn("double", agent.tools)
 
+    # Test case 5: input sai kieu cho tool_double khong lam crash agent
+    def test_agent_run_invalid_input_does_not_crash(self):
+        tools = {
+            "uppercase": tool_uppercase,
+            "double": tool_double
+        }
+        agent = Agent(
+            name="TestAgent",
+            description="Agent test",
+            tools_list=tools
+        )
+        # Neu Agent.run nem exception thi test se fail
+        agent.run("double", "abc")
+
     # Test case 4 (I4): Kiểm tra agent nhớ được context (memory)
     def test_agent_memory(self):
         # Xóa memory trước khi test
