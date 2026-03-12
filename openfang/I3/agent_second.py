@@ -5,6 +5,7 @@ def tool_summarize(text):
     summary = str(text).split(".")[0]
     return summary
 
+
 class Reviewer:
     def __init__(self):
         self.name = "Reviewer"
