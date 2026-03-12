@@ -50,7 +50,7 @@ if __name__ == "__main__":
     processed_result = agent1.run(tool, user_input)
 
     # bước 3: Reviewer nhận kết quả
-    reviewer.run(processed_result)
+    reviewer.run(str(output_agent1))
     
 #in ra màn hình Agent 1 output là gì, Review nói gì về output đó
 # agent_basic.py
@@ -97,4 +97,4 @@ if __name__ == "__main__":
     output_agent1 = agent1.run(tool, user_input)
 
     # Reviewer đánh giá
-    reviewer.run(output_agent1)
+    reviewer.run(str(output_agent1))
