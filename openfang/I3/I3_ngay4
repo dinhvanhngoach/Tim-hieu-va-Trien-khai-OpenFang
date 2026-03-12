@@ -4,5 +4,5 @@ Nội dung hôm nay gồm 2 ý :
       - gọi agent 1 xử lý input trước ( đoạn code đầu trong file main.py ), sau đoạn #import Reviewer vào agent_basic.py và gọi nó sau khi Agent 1 xử lý xong.
       - truyền kết quả sang Reviewer ( đoạn code đầu trong file agent_second.py), sau đoạn #truyền kết quả sang Reviewer
 ý 2 : in ra màn hình : agent 1 output là gì, Reviewer nói gì về ouput đó
-      - agent 1 ouput là gì ( đoạn code sau trong file main.py), sau đoạn
+      - agent 1 ouput là gì ( đoạn code sau trong file main.py), sau đoạn #in ra màn hình Agent 1 output là gì, Review nói gì về output đó
       - Reviewer nói gì về output đó ( đoạn code sau trong file agent_second.py), sau đoạn #in ra màn hình : Reviewer nói gì về output đó
