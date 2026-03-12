@@ -5,7 +5,7 @@
 
 # agent_basic.py
 
-from agent_basic import Reviewer
+from agent_second import Reviewer
 
 # --- TOOLS ---
 def tool_uppercase(text):
