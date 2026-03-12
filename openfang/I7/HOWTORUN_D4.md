@@ -7,6 +7,7 @@ cd Tim-hieu-va-Trien-khai-OpenFang/openfang/I3
 python agent_basic.py
 tool upercase:
 ![alt text](image.png)
+
 tool double:
 ![alt text](image-1.png)
 
