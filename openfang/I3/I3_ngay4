@@ -5,4 +5,4 @@ Nội dung hôm nay gồm 2 ý :
       - truyền kết quả sang Reviewer ( đoạn code đầu trong file agent_second.py), sau đoạn #truyền kết quả sang Reviewer
 ý 2 : in ra màn hình : agent 1 output là gì, Reviewer nói gì về ouput đó
       - agent 1 ouput là gì ( đoạn code sau trong file main.py), sau đoạn
-      - Reviewer nói gì về output đó ( đoạn code sau trong file agent_second.py)
+      - Reviewer nói gì về output đó ( đoạn code sau trong file agent_second.py), sau đoạn #in ra màn hình : Reviewer nói gì về output đó
