@@ -41,7 +41,22 @@ python openfang/I4/agent_basic_I4.py
 python -m unittest -v openfang.I4.test_agent
 ```
 
-## 2. Kiểm tra xử lý lỗi input sai kiểu cho tool
+## 2. Chạy test end-to-end cho pipeline 2 agent (main.py I4)
+End-to-end test được định nghĩa trong `openfang/I5/test_main_pipeline.py`.
+
+- Đứng tại thư mục gốc repo và chạy:
+
+```bash
+python -m unittest -v openfang.I5.test_main_pipeline
+```
+
+Test này sẽ:
+- Trường hợp OK: `run_pipeline("uppercase", "hello world.")`  
+  → Agent 1 trả `"HELLO WORLD."`, Reviewer tóm tắt `"HELLO WORLD"`.
+- Trường hợp lỗi: `run_pipeline("double", "abc")`  
+  → Agent 1 lỗi input, **không gọi Reviewer**, trả `(None, None)`.
+
+## 3. Kiểm tra xử lý lỗi input sai kiểu cho tool
 Trong cả I3 và I4:
 - `Agent.run("double", "abc")` **không làm crash chương trình**.
 - Thay vào đó, màn hình in:
@@ -49,11 +64,13 @@ Trong cả I3 và I4:
   - Thông báo lỗi input không hợp lệ
   - Chi tiết `ValueError` từ Python.
 
-Các hành vi này đã được cover bởi test mới trong:
+Các hành vi này đã được cover bởi test trong:
 - `openfang/I3/test_agent.py`
 - `openfang/I4/test_agent.py`
+và pipeline end-to-end trong:
+- `openfang/I5/test_main_pipeline.py`
 
-## 3. Docs & nhật ký liên quan cho I5
+## 4. Docs & nhật ký liên quan cho I5
 - Ghi chú khái niệm Tool: `openfang/I5/notes_I5_TrinhVanVinh.md`
 - Lỗi thường gặp & cách fix: `openfang/I5/ERRORS_LOG.md`
 - Báo cáo chi tiết xử lý lỗi input tool: `openfang/I5/REPORT_ERROR_HANDLING_TOOL_INPUT.md`

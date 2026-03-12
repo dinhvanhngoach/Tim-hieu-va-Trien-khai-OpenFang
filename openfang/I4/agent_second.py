@@ -19,7 +19,7 @@ class Reviewer:
         summary = tool_summarize(text)
 
         print("Summary:", summary)
-
+        return summary
 
 # chạy thử agent
 if __name__ == "__main__":
