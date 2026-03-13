@@ -24,18 +24,21 @@ class Agent:
             print("Result:", result)
 
         # Nếu hỏi agent đã làm gì trước đó
-        elif "lúc nãy mày làm gì" in message:
+        elif "lúc nãy mày làm gì" in message or "luc nay may lam gi" in message:
             if memory:
                 print("Memory:", memory[-1])
             else:
-                print("Chưa có hành động nào trước đó.")
+                print("Chua co hanh dong nao truoc do.")
 
         else:
-            print("Không hiểu yêu cầu.")
+            print("Khong hieu yeu cau. Thu: 'uppercase <tu>' hoac 'luc nay may lam gi'")
+
 
 
 # Chạy agent
 if __name__ == "__main__":
+    import sys, io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
     agent = Agent("MemoryAgent")
 
@@ -45,4 +48,4 @@ if __name__ == "__main__":
         if user_input == "exit":
             break
 
-        agent.run(user_input)
+        agent.run(user_input)
