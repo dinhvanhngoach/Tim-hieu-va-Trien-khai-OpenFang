@@ -35,7 +35,7 @@ class Agent:
             print(f"Su dung cong cu: {tool_name}")
             print(f"Ket qua cuoi cung: {result}")
         else:
-            print(f"Loi khong tim thay cong cu '{tool_name}' trong he thong!")
+            print(f"Loi: Khong tim thay cong cu '{tool_name}' trong he thong!")
 
 
 # --- CHẠY THỬ ---
