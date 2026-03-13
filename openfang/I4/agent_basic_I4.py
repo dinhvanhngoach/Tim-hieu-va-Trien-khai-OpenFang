@@ -2,6 +2,7 @@
 # I4 - Phạm Quốc Đạt
 # Lấy code từ I1+I2+I3, gắn 2 tool, test và thêm nhập tay
 
+#N
 #Clone lại từ github nếu xung đột
 #cd ~/Downloads
 #git clone https://github.com/dinhvanhngoach/Tim-hieu-va-Trien-khai-OpenFang
