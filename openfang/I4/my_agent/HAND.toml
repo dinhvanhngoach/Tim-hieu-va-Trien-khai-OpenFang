@@ -1,0 +1,26 @@
+# HAND.toml — Agent TextProcessor I4
+# Triển khai thật trên OpenFang
+
+name        = "text-processor-i4"
+description = "Agent xu ly text: chuyen chu hoa (uppercase) va nhan doi so (double). Demo boi I4 - Pham Quoc Dat."
+version     = "1.0.0"
+
+# ── LLM MODEL ──
+# Dùng Groq (free, nhanh). Thay bằng gemini nếu muốn.
+# Cần set env: export GROQ_API_KEY="your-key"
+model = "groq/llama-3.1-8b-instant"
+
+# ── SYSTEM PROMPT ──
+system_prompt = "system_prompt.md"
+
+# ── TOOL CÓ SẴN CỦA OPENFANG ──
+tools = [
+    "memory_store",    # Lưu kết quả vào memory
+    "memory_recall"    # Đọc lại từ memory (nhớ lịch sử)
+]
+
+# ── PYTHON SKILLS TỰ VIẾT ──
+skills = [
+    "skills/uppercase",
+    "skills/double"
+]
