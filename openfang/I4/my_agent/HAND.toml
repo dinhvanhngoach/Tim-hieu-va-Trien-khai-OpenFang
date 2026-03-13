@@ -1,18 +1,16 @@
 id          = "text-processor-i4"
 name        = "TextProcessor I4"
-description = "Agent xu ly text: chuyen chu hoa (uppercase) va nhan doi so (double). Demo boi I4 - Pham Quoc Dat."
+description = "Agent xu ly text: chuyen chu hoa va nhan doi so. Demo boi I4."
 version     = "1.0.0"
 category    = "productivity"
 
-model = "groq/llama-3.1-8b-instant"
-
+[agent]
+model         = "groq/llama-3.1-8b-instant"
 system_prompt = "system_prompt.md"
-
 tools = [
     "memory_store",
     "memory_recall"
 ]
-
 skills = [
     "skills/uppercase",
     "skills/double"
