@@ -10,7 +10,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from agent_basic import tool_uppercase, tool_double, Agent
-from agent_memory import uppercase_tool, memory, Agent as MemoryAgent
+from agent_memory import uppercase_tool, memory
 
 
 class TestAgentTools(unittest.TestCase):
@@ -40,7 +40,7 @@ class TestAgentTools(unittest.TestCase):
         self.assertIn("uppercase", agent.tools)
         self.assertIn("double", agent.tools)
 
-    # Test case 5: input sai kieu cho tool_double khong lam crash agent
+    # Test case 3b (bổ sung): agent không crash khi nhận input sai kiểu
     def test_agent_run_invalid_input_does_not_crash(self):
         tools = {
             "uppercase": tool_uppercase,
@@ -51,8 +51,10 @@ class TestAgentTools(unittest.TestCase):
             description="Agent test",
             tools_list=tools
         )
-        # Neu Agent.run nem exception thi test se fail
-        agent.run("double", "abc")
+        # Gọi tool_double với input sai kiểu (text thay vì số)
+        # Agent phải bắt lỗi và trả về None, không được raise exception
+        result = agent.run("double", "abc")
+        self.assertIsNone(result)  # Agent xử lý lỗi gracefully, không crash
 
     # Test case 4 (I4): Kiểm tra agent nhớ được context (memory)
     def test_agent_memory(self):
