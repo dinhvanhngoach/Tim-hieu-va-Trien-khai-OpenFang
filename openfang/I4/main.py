@@ -3,7 +3,7 @@
 # Agent 1 (Processor): xử lý input bằng tool_uppercase hoặc tool_double
 # Agent 2 (Reviewer):  nhận kết quả từ Agent 1 và tóm tắt
 
-from agent_second import Reviewer  # Reviewer nằm trong agent_second.py (I1)
+from agent_second import Reviewer  # Reviewer định nghĩa trong agent_second.py (cùng folder)
 
 # --- TOOLS ---
 def tool_uppercase(text):
